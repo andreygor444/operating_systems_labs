@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
   }
   if (j == 22) error();
   s[i] = '\0';
-  int res = atoi(s) + atoi(s + i + 1);
+  int res = add(atoi(s), atoi(s + i + 1));
   printf("%d\n", res);
   exit(0);
 }
