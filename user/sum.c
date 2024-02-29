@@ -3,12 +3,12 @@
 #include "user/user.h"
 
 void format_error() {
-  printf("Должны быть введены два целых положительных числа, не превосходящих 2147483647\n");
+  fprintf(2, "Должны быть введены два целых положительных числа, не превосходящих 2147483647\n");
   exit(1);
 }
 
 void read_error() {
-  printf("Ошибка чтения ввода\n");
+  fprintf(2, "Ошибка чтения ввода\n");
   exit(2);
 }
 
@@ -19,9 +19,8 @@ int main(int argc, char *argv[])
   while(n < 22 && (rc = read(0, s + (n++), 1)) > 0) { // Читаем по одному байту
   	if (s[n - 1] == '\n' || s[n - 1] == '\0') break;
   }
-  if (rc < 0) {
+  if (rc < 0)
   	read_error();
-  }
   int i = 0, j;
   while (i < 22 && s[i] != ' ' && s[i] != '\n') ++i;
   if (i == 22 || s[i] == '\n') format_error();
