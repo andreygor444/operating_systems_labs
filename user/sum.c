@@ -25,10 +25,10 @@ int main(int argc, char *argv[])
   while (i < 22 && s[i] != ' ' && s[i] != '\n') ++i;
   if (i == 22 || s[i] == '\n') format_error();
   for (j = 0; j < i; ++j) {
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
   }
   for (j = i + 1; j < 22 && (s[j] != '\n' && s[j] != '\0'); ++j) {
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
   }
   if (j == 22) format_error();
   s[i] = '\0';

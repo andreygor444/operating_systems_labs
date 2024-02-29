@@ -114,12 +114,12 @@ int main(int argc, char *argv[])
   c8:	4481                	li	s1,0
   ca:	b7c1                	j	8a <main+0x42>
   for (j = 0; j < i; ++j) {
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
   cc:	00000097          	auipc	ra,0x0
   d0:	f34080e7          	jalr	-204(ra) # 0 <format_error>
   }
   for (j = i + 1; j < 22 && (s[j] != '\n' && s[j] != '\0'); ++j) {
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
   d4:	00000097          	auipc	ra,0x0
   d8:	f2c080e7          	jalr	-212(ra) # 0 <format_error>
   }
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
  146:	1782                	slli	a5,a5,0x20
  148:	9381                	srli	a5,a5,0x20
  14a:	973e                	add	a4,a4,a5
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
  14c:	46a5                	li	a3,9
  14e:	00094783          	lbu	a5,0(s2)
  152:	fd07879b          	addiw	a5,a5,-48
@@ -180,14 +180,14 @@ int main(int argc, char *argv[])
  16e:	fb840793          	addi	a5,s0,-72
  172:	00978733          	add	a4,a5,s1
  176:	4629                	li	a2,10
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
  178:	45a5                	li	a1,9
   for (j = i + 1; j < 22 && (s[j] != '\n' && s[j] != '\0'); ++j) {
  17a:	4559                	li	a0,22
  17c:	00174783          	lbu	a5,1(a4)
  180:	f4c78ee3          	beq	a5,a2,dc <main+0x94>
  184:	dfa1                	beqz	a5,dc <main+0x94>
-  	if (s[j] < 48 || s[j] > 57) format_error();
+  	if (s[j] < '0' || s[j] > '9') format_error();
  186:	fd07879b          	addiw	a5,a5,-48
  18a:	0ff7f793          	zext.b	a5,a5
  18e:	f4f5e3e3          	bltu	a1,a5,d4 <main+0x8c>
